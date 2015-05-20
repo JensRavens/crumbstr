@@ -17,6 +17,7 @@
 		8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3791B0C88DD006A370A /* Crumb.swift */; };
 		8FC9A3801B0C8B2B006A370A /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; };
 		8FC9A3811B0C8B34006A370A /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8FC9A3831B0C9375006A370A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3821B0C9375006A370A /* LocationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		8FC9A3761B0C8815006A370A /* CrumbService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrumbService.swift; path = Models/CrumbService.swift; sourceTree = "<group>"; };
 		8FC9A3791B0C88DD006A370A /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
 		8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Interstellar.framework; sourceTree = "<group>"; };
+		8FC9A3821B0C9375006A370A /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		9EDA5BE494A47A469ACB7900 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		A9A1403F25D7A6C65AE69851 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AC5104F50E5B1582016032F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC9A3761B0C8815006A370A /* CrumbService.swift */,
+				8FC9A3821B0C9375006A370A /* LocationService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				4F349642A13AD63840151B49 /* AppDelegate.swift in Sources */,
 				8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */,
 				6E909BAE97EEC43BD3672153 /* LaunchScreen.xib in Sources */,
+				8FC9A3831B0C9375006A370A /* LocationService.swift in Sources */,
 				8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
