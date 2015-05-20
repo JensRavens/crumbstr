@@ -49,13 +49,19 @@ public class CrumbService {
         let record = CKRecord(recordType: "Crumb")
         record.setObject(crumb.text, forKey: "text")
         record.setObject(crumb.location, forKey: "location")
+        record.setObject(crumb.author?.name, forKey: "author")
         return record
     }
     
     private func recordToCrumb(record: CKRecord)->Result<Crumb> {
         if let text = record.objectForKey("text") as? String?,
-            location = record.objectForKey("location") as? CLLocation {
-                return .Success(Box(Crumb(location: location, text: text)))
+            location = record.objectForKey("location") as? CLLocation,
+            authorName = record.objectForKey("author") as? String? {
+                var author: User? = nil
+                if let name = authorName {
+                    author = User(name: name, avatar: nil)
+                }
+                return .Success(Box(Crumb(location: location, author: author, text: text)))
         } else {
             return .Error(NSError(domain: "Parsing", code: 421, userInfo: nil))
         }
