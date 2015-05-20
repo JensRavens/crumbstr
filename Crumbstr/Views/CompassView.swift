@@ -13,6 +13,8 @@ import Interstellar
 
 class CompassView: UIView {
     var currentLocation: CLLocation = CLLocation()
+    var currentAngle: Double = 0
+    var angleBetweenNorthAndTarget: Double = 0
     var targetLocation: CLLocation = CLLocation()
     var displayLink: CADisplayLink!
     var displayLinkDuration: CFTimeInterval
@@ -24,14 +26,56 @@ class CompassView: UIView {
         displayLinkDuration = 0
         super.init(coder: aDecoder)
         startAnimation()
+        bindCompass()
     }
     
     // MARK: - Private Methods
+    
+    func bindCompass() {
+        LocationService.sharedService.heading.next { heading in
+            self.currentAngle = self.degreesToRadians(self.normalizeHeading(heading.magneticHeading)) +
+                                self.angleBetweenNorthAndTarget
+        }
+    }
+    
+    func normalizeHeading(source: Double) -> Double {
+        var target = 0.0
+        
+        if (source >= 360) {
+            return normalizeHeading(source - 360.0)
+        }
+        
+        if (target > 180) {
+            target = 360.0 - source
+        } else {
+            target = 0.0 - source
+        }
+        
+        return target
+    }
+    
+    func angleBetweenNorthAndTarget(target: CLLocation) -> Double {
+        let currentLatitude = degreesToRadians(currentLocation.coordinate.latitude)
+        let currentLongitude = degreesToRadians(currentLocation.coordinate.longitude)
+        
+        let targetLatitude = degreesToRadians(targetLocation.coordinate.latitude)
+        let targetLongitude = degreesToRadians(targetLocation.coordinate.longitude)
+        
+        let longitudeDifference = targetLongitude - currentLongitude
+        
+        let y = sin(longitudeDifference) * cos(targetLatitude)
+        let x = cos(currentLatitude) * sin(targetLatitude) -
+                sin(currentLatitude) * cos(targetLatitude) * cos(longitudeDifference);
+        var radiansValue = atan2(y, x);
+        
+        return radiansValue;
+    }
     
     func locationsDidChange(locations: (currentLocation: CLLocation, targetLocation: CLLocation)) {
         currentLocation = locations.currentLocation
         targetLocation = locations.targetLocation
         self.distanceLabel.text = "\(currentDistanceToTarget()) m"
+        angleBetweenNorthAndTarget = angleBetweenNorthAndTarget(targetLocation)
     }
     
     // MARK: - Location services
@@ -67,7 +111,6 @@ class CompassView: UIView {
     }
     
     func tick() {
-        let angle: CGFloat = CGFloat(M_PI)
-        compassImage.transform = CGAffineTransformMakeRotation(angle)
+        compassImage.transform = CGAffineTransformMakeRotation(CGFloat(currentAngle))
     }
 }
