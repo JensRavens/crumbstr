@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6249" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="HrZ-0a-ATZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6243"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Compass View Controller-->
+        <scene sceneID="GW7-gV-qfU">
+            <objects>
+                <viewController id="HrZ-0a-ATZ" customClass="CompassViewController" customModule="Crumbstr" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lVx-q0-VLJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="11t-f4-Z50"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a2U-VI-w0d" customClass="CompassView" customModule="Crumbstr" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass" translatesAutoresizingMaskIntoConstraints="NO" id="Bgm-1W-byW">
+                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="d4M-36-5Fz"/>
+                                    <constraint firstAttribute="width" constant="300" id="eYI-o7-i05"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rrj-Zb-fNY">
+                                <rect key="frame" x="16" y="458" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rrj-Zb-fNY" firstAttribute="trailing" secondItem="a2U-VI-w0d" secondAttribute="trailingMargin" id="Ke6-mv-acT"/>
+                            <constraint firstItem="Rrj-Zb-fNY" firstAttribute="leading" secondItem="a2U-VI-w0d" secondAttribute="leadingMargin" id="OSN-kj-zmL"/>
+                            <constraint firstAttribute="centerY" secondItem="Bgm-1W-byW" secondAttribute="centerY" id="SHW-Io-ubR"/>
+                            <constraint firstItem="Rrj-Zb-fNY" firstAttribute="top" secondItem="Bgm-1W-byW" secondAttribute="bottom" constant="8" id="UaR-ks-l71"/>
+                            <constraint firstAttribute="centerX" secondItem="Bgm-1W-byW" secondAttribute="centerX" id="gym-kl-UEd"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="compassImage" destination="Bgm-1W-byW" id="T1F-wv-DBa"/>
+                            <outlet property="distanceLabel" destination="Rrj-Zb-fNY" id="N7G-gv-8qz"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="compassView" destination="a2U-VI-w0d" id="nI1-5r-jwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGv-ov-h1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920" y="386"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="compass" width="300" height="300"/>
+    </resources>
 </document>

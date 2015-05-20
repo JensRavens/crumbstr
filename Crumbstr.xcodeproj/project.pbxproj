@@ -17,6 +17,8 @@
 		8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3791B0C88DD006A370A /* Crumb.swift */; };
 		8FC9A3801B0C8B2B006A370A /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; };
 		8FC9A3811B0C8B34006A370A /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A6BB31781B0C8C1D000A2F28 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */; };
+		A6BB317A1B0C8C2D000A2F28 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB31791B0C8C2D000A2F28 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		8FC9A3791B0C88DD006A370A /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
 		8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Interstellar.framework; sourceTree = "<group>"; };
 		9EDA5BE494A47A469ACB7900 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
+		A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassViewController.swift; sourceTree = "<group>"; };
+		A6BB31791B0C8C2D000A2F28 /* CompassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
 		A9A1403F25D7A6C65AE69851 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AC5104F50E5B1582016032F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		DE178A76FE1BE96F6B2DAAA9 /* AppDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 		897CD155E1F7816CE6B87003 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A6BB31791B0C8C2D000A2F28 /* CompassView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				DE178A76FE1BE96F6B2DAAA9 /* AppDelegate.swift */,
+				A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -340,9 +346,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BB317A1B0C8C2D000A2F28 /* CompassView.swift in Sources */,
 				8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */,
 				4F349642A13AD63840151B49 /* AppDelegate.swift in Sources */,
 				8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */,
+				A6BB31781B0C8C1D000A2F28 /* CompassViewController.swift in Sources */,
 				6E909BAE97EEC43BD3672153 /* LaunchScreen.xib in Sources */,
 				8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */,
 			);
