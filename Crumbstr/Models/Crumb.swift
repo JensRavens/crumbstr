@@ -14,30 +14,34 @@ public struct Crumb {
     public let location: CLLocation
     public let author: User?
     public let text: String?
-    public let image: UIImage?
+    public let imageUrl: NSURL?
     
     public init(location: CLLocation) {
         self.location = location
         self.text = nil
-        self.image = nil
+        self.imageUrl = nil
         self.author = nil
     }
     
-    public init(location: CLLocation, text: String?, image:UIImage? = nil, author: User? = nil){
+    public init(location: CLLocation, text: String?, image:NSURL? = nil, author: User? = nil){
         self.location = location
         self.text = text
         self.author = author
-        self.image = image
+        self.imageUrl = image
     }
     
     public static func example()->Crumb {
-        let author = User(name: "Georg", avatar: nil)
+        let author = User.example()
         let location = CLLocation(latitude: 0, longitude: 0)
-        return Crumb(location: location, text: "Here is our very first crumb!", image: UIImage(named: "UserPlaceholder"), author: author)
+        return Crumb(location: location, text: "Here is our very first crumb!", image: nil, author: author)
     }
 }
 
 public struct User {
     public let name: String
-    public let avatar: UIImage?
+    public let avatarUrl: NSURL?
+    
+    public static func example()->User {
+        return User(name: "Georg", avatarUrl: nil)
+    }
 }

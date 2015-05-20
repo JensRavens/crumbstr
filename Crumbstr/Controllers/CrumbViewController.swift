@@ -10,34 +10,30 @@ import Foundation
 import Interstellar
 import CoreLocation
 
-public final class CrumbViewController: UIViewController, UIScrollViewDelegate {
-    var crumb = Signal<Crumb>()
+public final class CrumbViewController: UIViewController, UIScrollViewDelegate, UITableViewDataSource {
+    var crumbs = Signal<[Crumb]>()
     
-    @IBOutlet var avatarView: UIImageView?
-    @IBOutlet var userLabel: UILabel?
-    @IBOutlet var crumbLabel: UILabel?
-    @IBOutlet var crumbImage: UIImageView?
+    @IBOutlet var tableView: UITableView?
     
     public override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-        LocationService.sharedService.startUpdates()
-        crumb.next(displayCrumb)
+//    public override func viewDidLoad() {
+//        super.viewDidLoad()
+//        LocationService.sharedService.startUpdates()
+//    }
+    
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return crumbs.peek()?.count ?? 0
     }
     
-    private func displayCrumb(crumb: Crumb) {
-        userLabel?.text = crumb.author?.name
-        crumbLabel?.text = crumb.text
-        avatarView?.image = crumb.author?.avatar
-        crumbImage?.image = crumb.image
-        if let image = crumb.image {
-            crumbImage?.hidden = false
-        } else {
-            crumbImage?.hidden = true
-        }
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let crumb = crumbs.peek()![indexPath.row]
+        let identifier = crumb.imageUrl == nil ? "cell" : "image"
+        let cell = tableView.dequeueReusableCellWithIdentifier(identifier, forIndexPath: indexPath) as! CrumbCell
+        cell.displayCrumb(crumbs.peek()![indexPath.row])
+        return cell
     }
     
     public func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {

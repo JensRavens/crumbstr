@@ -34,6 +34,7 @@ public class CrumbService {
     }
     
     private func requestCrumbs(location: CLLocation, completion: (Result<[Crumb]>->Void)) {
+        let predicate = NSPredicate(format: "distanceToLocation:fromLocation:(location, %@) < %f", location, 200)
         let query = CKQuery(recordType: "Crumb", predicate: NSPredicate(value: true))
         cloudDatabase.performQuery(query, inZoneWithID: nil){ crumbRecords, error in
             if let error = error {
@@ -50,20 +51,41 @@ public class CrumbService {
         record.setObject(crumb.text, forKey: "text")
         record.setObject(crumb.location, forKey: "location")
         record.setObject(crumb.author?.name, forKey: "author")
-        record.setObject(tmpImage(crumb.author?.avatar), forKey: "author_avatar")
-        record.setObject(tmpImage(crumb.image), forKey: "image")
+        record.setObject(assetForUrl(crumb.author?.avatarUrl), forKey: "author_avatar")
+        record.setObject(assetForUrl(crumb.imageUrl), forKey: "image")
         return record
     }
     
-    private func tmpImage(image: UIImage?)->CKAsset? {
-        if let image = image {
-            let path = NSTemporaryDirectory().stringByAppendingPathComponent("\(NSDate.timeIntervalSinceReferenceDate()*1000.0).jpg")
-            let url = NSURL(fileURLWithPath: path)!
-            UIImageJPEGRepresentation(image, 1).writeToFile(url.path!, atomically: true)
+    private func assetForUrl(url: NSURL?) -> CKAsset?{
+        if let url = url {
             return CKAsset(fileURL: url)
         } else {
             return nil
         }
+    }
+    
+    public class func tmpImage(image: UIImage?)->NSURL? {
+        if let image = image {
+            let path = NSTemporaryDirectory().stringByAppendingPathComponent("\(NSDate.timeIntervalSinceReferenceDate()*1000.0).jpg")
+            let url = NSURL(fileURLWithPath: path)!
+            UIImageJPEGRepresentation(image, 1).writeToFile(url.path!, atomically: true)
+            return url
+        } else {
+            return nil
+        }
+    }
+    
+    public class func resizeImage(image: UIImage, width: CGFloat = 300) -> UIImage {
+        let height = (width / image.size.width) * image.size.height
+        let size = CGSize(width: width, height: height)
+        
+        UIGraphicsBeginImageContextWithOptions(size, true, 0.0)
+        image.drawInRect(CGRect(origin: CGPointZero, size: size))
+        
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     private func recordToCrumb(record: CKRecord)->Result<Crumb> {
@@ -72,19 +94,15 @@ public class CrumbService {
             authorName = record.objectForKey("author") as? String? {
                 var author: User? = nil
                 if let name = authorName {
-                    if let url = record.objectForKey("author_avatar") as? CKAsset,
-                        data = NSData(contentsOfURL: url.fileURL),
-                        image = UIImage(data: data) {
-                            author = User(name: name, avatar: image)
+                    if let url = record.objectForKey("author_avatar") as? CKAsset {
+                            author = User(name: name, avatarUrl: url.fileURL)
                     } else {
-                        author = User(name: name, avatar: nil)
+                        author = User(name: name, avatarUrl: nil)
                     }
                 }
                 let crumb: Crumb
-                if let url = record.objectForKey("image") as? CKAsset,
-                    data = NSData(contentsOfURL: url.fileURL),
-                    image = UIImage(data: data) {
-                        crumb = Crumb(location: location, text: text, image: image, author: author)
+                if let url = record.objectForKey("image") as? CKAsset{
+                        crumb = Crumb(location: location, text: text, image: url.fileURL, author: author)
                 } else {
                     crumb = Crumb(location: location, text: text, author: author)
                 }
@@ -107,5 +125,17 @@ public class CrumbService {
         }
         return items
     }
-    
+}
+
+extension UIImage {
+    public func resize(width:CGFloat) -> UIImage {
+        let height = (width / self.size.width) * self.size.height
+        let size = CGSize(width: width, height: height)
+        let rect = CGRectMake(0, 0, size.width, size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, 1.0)
+        self.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
 }

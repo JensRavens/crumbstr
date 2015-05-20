@@ -14,17 +14,38 @@
 		6FD49E37C47A4E7294FCDA03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5104F50E5B1582016032F4 /* Foundation.framework */; };
 		8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = A9A1403F25D7A6C65AE69851 /* Main.storyboard */; };
 		8F0991BE1B0CA99C0019E919 /* CrumbViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0991BD1B0CA99C0019E919 /* CrumbViewController.swift */; };
+		8F8BDCAE1B0CCC640062182C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8BDCAD1B0CCC640062182C /* PostViewController.swift */; };
+		8F967FE71B0CF2A100D3139F /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; };
+		8F967FE81B0CF2CB00D3139F /* CrumbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3761B0C8815006A370A /* CrumbService.swift */; };
+		8F967FE91B0CF2CB00D3139F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3821B0C9375006A370A /* LocationService.swift */; };
+		8F967FEA1B0CF2CB00D3139F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD940F1B0CD27500395111 /* UserService.swift */; };
+		8F967FEB1B0CF2CF00D3139F /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3791B0C88DD006A370A /* Crumb.swift */; };
 		8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3761B0C8815006A370A /* CrumbService.swift */; };
 		8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3791B0C88DD006A370A /* Crumb.swift */; };
 		8FC9A3801B0C8B2B006A370A /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; };
 		8FC9A3811B0C8B34006A370A /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FC9A3831B0C9375006A370A /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3821B0C9375006A370A /* LocationService.swift */; };
 		8FC9A3861B0C95FA006A370A /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A3851B0C95FA006A370A /* CloudKit.framework */; };
+		8FDD94101B0CD27500395111 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD940F1B0CD27500395111 /* UserService.swift */; };
+		8FDD94121B0CD55300395111 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD94111B0CD55300395111 /* SignupViewController.swift */; };
+		8FDD94141B0CD81200395111 /* UITextField+Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD94131B0CD81200395111 /* UITextField+Signal.swift */; };
+		8FDD94161B0CE62500395111 /* CrumbCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD94151B0CE62500395111 /* CrumbCell.swift */; };
+		8FDD94201B0CF0FE00395111 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FDD941F1B0CF0FE00395111 /* ShareViewController.swift */; };
+		8FDD94221B0CF0FE00395111 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FDD94211B0CF0FE00395111 /* MainInterface.storyboard */; };
+		8FDD94251B0CF0FE00395111 /* sharing.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8FDD941B1B0CF0FE00395111 /* sharing.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8FDD942B1B0CF11500395111 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A3851B0C95FA006A370A /* CloudKit.framework */; };
 		A6BB31781B0C8C1D000A2F28 /* CompassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */; };
 		A6BB317A1B0C8C2D000A2F28 /* CompassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB31791B0C8C2D000A2F28 /* CompassView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8FDD94231B0CF0FE00395111 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 245D2D0748F46ACBCC476AD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FDD941A1B0CF0FE00395111;
+			remoteInfo = sharing;
+		};
 		C76364FC4AED85FD5F5C9F28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 245D2D0748F46ACBCC476AD8 /* Project object */;
@@ -45,6 +66,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FDD94291B0CF0FE00395111 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8FDD94251B0CF0FE00395111 /* sharing.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -55,12 +87,22 @@
 		73A4C6AFCE785795B12F7BD8 /* Settings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		76541B384258CFD13BBA514D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8F0991BD1B0CA99C0019E919 /* CrumbViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrumbViewController.swift; sourceTree = "<group>"; };
+		8F8BDCAD1B0CCC640062182C /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		8FC9A3761B0C8815006A370A /* CrumbService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrumbService.swift; path = Models/CrumbService.swift; sourceTree = "<group>"; };
 		8FC9A3791B0C88DD006A370A /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
 		8FC9A37F1B0C8B2B006A370A /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Interstellar.framework; sourceTree = "<group>"; };
 		8FC9A3821B0C9375006A370A /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		8FC9A3841B0C95EE006A370A /* Crumbstr.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Crumbstr.entitlements; path = ../../Crumbstr.entitlements; sourceTree = "<group>"; };
 		8FC9A3851B0C95FA006A370A /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8FDD940F1B0CD27500395111 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		8FDD94111B0CD55300395111 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		8FDD94131B0CD81200395111 /* UITextField+Signal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Signal.swift"; sourceTree = "<group>"; };
+		8FDD94151B0CE62500395111 /* CrumbCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrumbCell.swift; sourceTree = "<group>"; };
+		8FDD941B1B0CF0FE00395111 /* sharing.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = sharing.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FDD941E1B0CF0FE00395111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FDD941F1B0CF0FE00395111 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		8FDD94211B0CF0FE00395111 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		8FDD942A1B0CF10D00395111 /* sharing.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = sharing.entitlements; sourceTree = "<group>"; };
 		9EDA5BE494A47A469ACB7900 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassViewController.swift; sourceTree = "<group>"; };
 		A6BB31791B0C8C2D000A2F28 /* CompassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompassView.swift; sourceTree = "<group>"; };
@@ -70,6 +112,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8FDD94181B0CF0FE00395111 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDD942B1B0CF11500395111 /* CloudKit.framework in Frameworks */,
+				8F967FE71B0CF2A100D3139F /* Interstellar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C5FE5D5E0A2C82B2D337C8C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -158,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				A6BB31791B0C8C2D000A2F28 /* CompassView.swift */,
+				8FDD94131B0CD81200395111 /* UITextField+Signal.swift */,
+				8FDD94151B0CE62500395111 /* CrumbCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +220,7 @@
 			children = (
 				49853BA17FC7D63E6E323D4A /* Crumbstr.app */,
 				2FBACBEAB657307BCE421BFD /* UnitTests.xctest */,
+				8FDD941B1B0CF0FE00395111 /* sharing.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,8 +238,28 @@
 			children = (
 				8FC9A3761B0C8815006A370A /* CrumbService.swift */,
 				8FC9A3821B0C9375006A370A /* LocationService.swift */,
+				8FDD940F1B0CD27500395111 /* UserService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		8FDD941C1B0CF0FE00395111 /* sharing */ = {
+			isa = PBXGroup;
+			children = (
+				8FDD942A1B0CF10D00395111 /* sharing.entitlements */,
+				8FDD941F1B0CF0FE00395111 /* ShareViewController.swift */,
+				8FDD94211B0CF0FE00395111 /* MainInterface.storyboard */,
+				8FDD941D1B0CF0FE00395111 /* Supporting Files */,
+			);
+			path = sharing;
+			sourceTree = "<group>";
+		};
+		8FDD941D1B0CF0FE00395111 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8FDD941E1B0CF0FE00395111 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A71330B34092A219FBA81A79 /* Tests */ = {
@@ -253,6 +327,8 @@
 				DE178A76FE1BE96F6B2DAAA9 /* AppDelegate.swift */,
 				A6BB31771B0C8C1D000A2F28 /* CompassViewController.swift */,
 				8F0991BD1B0CA99C0019E919 /* CrumbViewController.swift */,
+				8F8BDCAD1B0CCC640062182C /* PostViewController.swift */,
+				8FDD94111B0CD55300395111 /* SignupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +338,7 @@
 			children = (
 				3629900B4966CB5D04E29116 /* Crumbstr */,
 				56FC954D87C211BC1383E5C6 /* UnitTests */,
+				8FDD941C1B0CF0FE00395111 /* sharing */,
 				A86976AEE9E68F3525D1BCAF /* Frameworks */,
 				8EA8AB061FFAE6BFC37927B5 /* Products */,
 			);
@@ -288,6 +365,23 @@
 			productReference = 2FBACBEAB657307BCE421BFD /* UnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8FDD941A1B0CF0FE00395111 /* sharing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8FDD94261B0CF0FE00395111 /* Build configuration list for PBXNativeTarget "sharing" */;
+			buildPhases = (
+				8FDD94171B0CF0FE00395111 /* Sources */,
+				8FDD94181B0CF0FE00395111 /* Frameworks */,
+				8FDD94191B0CF0FE00395111 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sharing;
+			productName = sharing;
+			productReference = 8FDD941B1B0CF0FE00395111 /* sharing.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		EE78AA19BFAD10F51D31EB72 /* Crumbstr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE005B58A89BE36427CC1873 /* Build configuration list for PBXNativeTarget "Crumbstr" */;
@@ -296,10 +390,12 @@
 				C6A7BC2C3ABAE388650EEB97 /* Frameworks */,
 				E89BE0E3ACBF1B0E926D9DEB /* Resources */,
 				8FC9A37D1B0C89D1006A370A /* CopyFiles */,
+				8FDD94291B0CF0FE00395111 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8FDD94241B0CF0FE00395111 /* PBXTargetDependency */,
 			);
 			name = Crumbstr;
 			productName = Crumbstr;
@@ -316,9 +412,24 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = swift.berlin;
 				TargetAttributes = {
+					8FDD941A1B0CF0FE00395111 = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 9T3CSZK383;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
+					};
 					EE78AA19BFAD10F51D31EB72 = {
 						DevelopmentTeam = 9T3CSZK383;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -343,6 +454,7 @@
 			targets = (
 				EE78AA19BFAD10F51D31EB72 /* Crumbstr */,
 				58EFBEB4E0417446842ECFA3 /* UnitTests */,
+				8FDD941A1B0CF0FE00395111 /* sharing */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +464,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDD94191B0CF0FE00395111 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8FDD94221B0CF0FE00395111 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,11 +495,28 @@
 				A6BB317A1B0C8C2D000A2F28 /* CompassView.swift in Sources */,
 				8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */,
 				4F349642A13AD63840151B49 /* AppDelegate.swift in Sources */,
+				8F8BDCAE1B0CCC640062182C /* PostViewController.swift in Sources */,
+				8FDD94161B0CE62500395111 /* CrumbCell.swift in Sources */,
 				8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */,
+				8FDD94121B0CD55300395111 /* SignupViewController.swift in Sources */,
+				8FDD94101B0CD27500395111 /* UserService.swift in Sources */,
 				A6BB31781B0C8C1D000A2F28 /* CompassViewController.swift in Sources */,
 				6E909BAE97EEC43BD3672153 /* LaunchScreen.xib in Sources */,
 				8FC9A3831B0C9375006A370A /* LocationService.swift in Sources */,
+				8FDD94141B0CD81200395111 /* UITextField+Signal.swift in Sources */,
 				8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FDD94171B0CF0FE00395111 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F967FEB1B0CF2CF00D3139F /* Crumb.swift in Sources */,
+				8F967FEA1B0CF2CB00D3139F /* UserService.swift in Sources */,
+				8FDD94201B0CF0FE00395111 /* ShareViewController.swift in Sources */,
+				8F967FE91B0CF2CB00D3139F /* LocationService.swift in Sources */,
+				8F967FE81B0CF2CB00D3139F /* CrumbService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +534,11 @@
 			isa = PBXTargetDependency;
 			target = EE78AA19BFAD10F51D31EB72 /* Crumbstr */;
 			targetProxy = C76364FC4AED85FD5F5C9F28 /* PBXContainerItemProxy */;
+		};
+		8FDD94241B0CF0FE00395111 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FDD941A1B0CF0FE00395111 /* sharing */;
+			targetProxy = 8FDD94231B0CF0FE00395111 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -507,6 +649,70 @@
 			};
 			name = Release;
 		};
+		8FDD94271B0CF0FE00395111 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = sharing/sharing.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crumbstr/Resources",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = sharing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8FDD94281B0CF0FE00395111 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = sharing/sharing.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Crumbstr/Resources",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = sharing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CE0B33E9B96D3419173CDCEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -583,6 +789,15 @@
 			buildConfigurations = (
 				74116AC5C51059296A4F5FB0 /* Release */,
 				18CA3E1468B3EEC0FF80BFA7 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8FDD94261B0CF0FE00395111 /* Build configuration list for PBXNativeTarget "sharing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FDD94271B0CF0FE00395111 /* Debug */,
+				8FDD94281B0CF0FE00395111 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
