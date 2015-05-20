@@ -13,13 +13,8 @@ import CoreLocation
 public class LocationService : NSObject, CLLocationManagerDelegate {
     public static let sharedService = LocationService()
     
-    public let signal: Signal<CLLocation>
-    
-    private let location = Signal<CLLocation>()
-    
-    override public init() {
-        signal = location.ensure(Thread.main)
-    }
+    public let location = Signal<CLLocation>()
+    public let heading = Signal<CLHeading>()
     
     private let locationManager = CLLocationManager()
     
@@ -28,6 +23,7 @@ public class LocationService : NSObject, CLLocationManagerDelegate {
         locationManager.distanceFilter = 100
         locationManager.desiredAccuracy = 60
         locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingHeading()
     }
     
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -38,9 +34,14 @@ public class LocationService : NSObject, CLLocationManagerDelegate {
         }
     }
     
+    public func locationManager(manager: CLLocationManager!, didUpdateHeading newHeading: CLHeading!) {
+        heading.update(.Success(Box(newHeading)))
+    }
+    
     public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
         println(error)
         location.update(.Error(error))
+        heading.update(.Error(error))
     }
     
     public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
