@@ -20,8 +20,8 @@ public class LocationService : NSObject, CLLocationManagerDelegate {
     
     public func startUpdates() {
         locationManager.delegate = self
-        locationManager.distanceFilter = 100
-        locationManager.desiredAccuracy = 60
+        locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = 5
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingHeading()
     }
@@ -39,7 +39,7 @@ public class LocationService : NSObject, CLLocationManagerDelegate {
     }
     
     public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println(error)
+        println("Location error: \(error)")
         location.update(.Error(error))
         heading.update(.Error(error))
     }

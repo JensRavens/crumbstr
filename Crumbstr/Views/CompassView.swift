@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 import CoreLocation
 import Interstellar
+import MapKit
 
 class CompassView: UIView {
     var currentLocation: CLLocation = CLLocation()
@@ -27,6 +28,11 @@ class CompassView: UIView {
         super.init(coder: aDecoder)
         startAnimation()
         bindCompass()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        distanceLabel.text = nil
     }
     
     // MARK: - Private Methods
@@ -74,7 +80,7 @@ class CompassView: UIView {
     func locationsDidChange(locations: (currentLocation: CLLocation, targetLocation: CLLocation)) {
         currentLocation = locations.currentLocation
         targetLocation = locations.targetLocation
-        self.distanceLabel.text = "\(currentDistanceToTarget()) m"
+        self.distanceLabel.text = MKDistanceFormatter().stringFromDistance(currentDistanceToTarget())
         angleBetweenNorthAndTarget = angleBetweenNorthAndTarget(targetLocation)
     }
     
@@ -88,8 +94,8 @@ class CompassView: UIView {
         return degrees * (M_PI / 180.0)
     }
     
-    func currentDistanceToTarget() -> Int {
-        return Int(targetLocation.distanceFromLocation(currentLocation))
+    func currentDistanceToTarget() -> CLLocationDistance {
+        return targetLocation.distanceFromLocation(currentLocation)
     }
     
     // MARK: - Display Link

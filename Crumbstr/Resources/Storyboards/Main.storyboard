@@ -31,8 +31,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQW-Ug-crl">
-                                <rect key="frame" x="537" y="20" width="47" height="30"/>
-                                <state key="normal" title="Crumb">
+                                <rect key="frame" x="244" y="670" width="112" height="30"/>
+                                <state key="normal" title="Crumb detected">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -42,12 +42,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aQW-Ug-crl" firstAttribute="trailing" secondItem="a2U-VI-w0d" secondAttribute="trailingMargin" id="Buy-nJ-0Lo"/>
-                            <constraint firstItem="aQW-Ug-crl" firstAttribute="top" secondItem="lVx-q0-VLJ" secondAttribute="bottom" id="HeN-4A-g2m"/>
+                            <constraint firstAttribute="centerX" secondItem="aQW-Ug-crl" secondAttribute="centerX" id="AvR-k9-NKJ"/>
                             <constraint firstItem="Rrj-Zb-fNY" firstAttribute="trailing" secondItem="a2U-VI-w0d" secondAttribute="trailingMargin" id="Ke6-mv-acT"/>
                             <constraint firstItem="Rrj-Zb-fNY" firstAttribute="leading" secondItem="a2U-VI-w0d" secondAttribute="leadingMargin" id="OSN-kj-zmL"/>
                             <constraint firstAttribute="centerY" secondItem="Bgm-1W-byW" secondAttribute="centerY" id="SHW-Io-ubR"/>
                             <constraint firstItem="Rrj-Zb-fNY" firstAttribute="top" secondItem="Bgm-1W-byW" secondAttribute="bottom" constant="8" id="UaR-ks-l71"/>
+                            <constraint firstItem="11t-f4-Z50" firstAttribute="top" secondItem="aQW-Ug-crl" secondAttribute="bottom" constant="-100" id="WNC-nX-vna"/>
+                            <constraint firstItem="11t-f4-Z50" firstAttribute="top" secondItem="aQW-Ug-crl" secondAttribute="bottom" priority="750" constant="20" id="WNF-we-rWb"/>
                             <constraint firstAttribute="centerX" secondItem="Bgm-1W-byW" secondAttribute="centerX" id="gym-kl-UEd"/>
                         </constraints>
                         <connections>
@@ -57,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="compassView" destination="a2U-VI-w0d" id="nI1-5r-jwd"/>
+                        <outlet property="hideButtonConstraint" destination="WNC-nX-vna" id="zCo-Wv-3nE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGv-ov-h1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +89,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4V7-7e-CEt">
-                                        <rect key="frame" x="150" y="80" width="300" height="76"/>
+                                        <rect key="frame" x="150" y="80" width="300" height="212"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyT-or-fhV">
                                                 <rect key="frame" x="96" y="8" width="196" height="17"/>
@@ -113,16 +115,25 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xPD-jW-BcD">
+                                                <rect key="frame" x="8" y="76" width="284" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="750" constant="128" placeholder="YES" id="09F-0Y-DR5"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xPD-jW-BcD" secondAttribute="trailing" constant="8" id="17I-1v-y6Q"/>
                                             <constraint firstAttribute="trailing" secondItem="xyT-or-fhV" secondAttribute="trailing" constant="8" id="1fj-6Y-ivX"/>
                                             <constraint firstItem="mVy-p4-azD" firstAttribute="leading" secondItem="4V7-7e-CEt" secondAttribute="leading" constant="8" id="4Xi-4b-FCu"/>
+                                            <constraint firstItem="xPD-jW-BcD" firstAttribute="leading" secondItem="4V7-7e-CEt" secondAttribute="leading" constant="8" id="C1h-fr-f11"/>
+                                            <constraint firstAttribute="bottom" secondItem="xPD-jW-BcD" secondAttribute="bottom" constant="8" id="FGI-D4-mfh"/>
                                             <constraint firstItem="CvI-bC-4jt" firstAttribute="leading" secondItem="4V7-7e-CEt" secondAttribute="leading" constant="8" id="IS6-nL-6Xt"/>
                                             <constraint firstItem="mVy-p4-azD" firstAttribute="top" secondItem="CvI-bC-4jt" secondAttribute="bottom" constant="8" id="J4v-K6-sAE"/>
+                                            <constraint firstItem="xPD-jW-BcD" firstAttribute="top" secondItem="mVy-p4-azD" secondAttribute="bottom" constant="8" id="UPl-BK-yFg"/>
                                             <constraint firstItem="xyT-or-fhV" firstAttribute="leading" secondItem="CvI-bC-4jt" secondAttribute="trailing" constant="8" id="X90-S8-rF4"/>
                                             <constraint firstAttribute="trailing" secondItem="mVy-p4-azD" secondAttribute="trailing" constant="8" id="day-EH-Lu6"/>
-                                            <constraint firstAttribute="bottom" secondItem="mVy-p4-azD" secondAttribute="bottom" constant="8" id="iwM-tg-9pG"/>
                                             <constraint firstAttribute="width" constant="300" id="jHp-az-mMH"/>
                                             <constraint firstItem="CvI-bC-4jt" firstAttribute="top" secondItem="4V7-7e-CEt" secondAttribute="top" constant="-40" id="oGK-uI-hVh"/>
                                             <constraint firstItem="xyT-or-fhV" firstAttribute="top" secondItem="4V7-7e-CEt" secondAttribute="top" constant="8" id="vDD-lN-ppm"/>
@@ -158,6 +169,7 @@
                     </view>
                     <connections>
                         <outlet property="avatarView" destination="CvI-bC-4jt" id="AFa-r2-uLT"/>
+                        <outlet property="crumbImage" destination="xPD-jW-BcD" id="Ygc-Xm-hY6"/>
                         <outlet property="crumbLabel" destination="mVy-p4-azD" id="kD7-JG-t2p"/>
                         <outlet property="userLabel" destination="xyT-or-fhV" id="2b3-Ml-XtV"/>
                     </connections>

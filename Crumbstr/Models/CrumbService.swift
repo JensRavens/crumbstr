@@ -50,7 +50,20 @@ public class CrumbService {
         record.setObject(crumb.text, forKey: "text")
         record.setObject(crumb.location, forKey: "location")
         record.setObject(crumb.author?.name, forKey: "author")
+        record.setObject(tmpImage(crumb.author?.avatar), forKey: "author_avatar")
+        record.setObject(tmpImage(crumb.image), forKey: "image")
         return record
+    }
+    
+    private func tmpImage(image: UIImage?)->CKAsset? {
+        if let image = image {
+            let path = NSTemporaryDirectory().stringByAppendingPathComponent("\(NSDate.timeIntervalSinceReferenceDate()*1000.0).jpg")
+            let url = NSURL(fileURLWithPath: path)!
+            UIImageJPEGRepresentation(image, 1).writeToFile(url.path!, atomically: true)
+            return CKAsset(fileURL: url)
+        } else {
+            return nil
+        }
     }
     
     private func recordToCrumb(record: CKRecord)->Result<Crumb> {
@@ -59,9 +72,23 @@ public class CrumbService {
             authorName = record.objectForKey("author") as? String? {
                 var author: User? = nil
                 if let name = authorName {
-                    author = User(name: name, avatar: nil)
+                    if let url = record.objectForKey("author_avatar") as? CKAsset,
+                        data = NSData(contentsOfURL: url.fileURL),
+                        image = UIImage(data: data) {
+                            author = User(name: name, avatar: image)
+                    } else {
+                        author = User(name: name, avatar: nil)
+                    }
                 }
-                return .Success(Box(Crumb(location: location, author: author, text: text)))
+                let crumb: Crumb
+                if let url = record.objectForKey("image") as? CKAsset,
+                    data = NSData(contentsOfURL: url.fileURL),
+                    image = UIImage(data: data) {
+                        crumb = Crumb(location: location, text: text, image: image, author: author)
+                } else {
+                    crumb = Crumb(location: location, text: text, author: author)
+                }
+                return .Success(Box(crumb))
         } else {
             return .Error(NSError(domain: "Parsing", code: 421, userInfo: nil))
         }

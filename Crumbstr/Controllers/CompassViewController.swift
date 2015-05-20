@@ -10,27 +10,64 @@ import UIKit
 import CoreLocation
 import Interstellar
 
+func location(crumb: Crumb) -> CLLocation {
+    return crumb.location
+}
+
 class CompassViewController: UIViewController {
-    var currentLocation: Signal<CLLocation> = Signal(CLLocation(latitude: 52.50261, longitude: 13.41222))
-    var targetLocation: Signal<CLLocation> = Signal(CLLocation(latitude: 52.52192, longitude: 13.41321))
+    let currentLocation = LocationService.sharedService.location
+    var nearestCrumb: Signal<Crumb>!
+    var targetLocation: Signal<CLLocation>!
 
     @IBOutlet var compassView: CompassView!
+    @IBOutlet var hideButtonConstraint: NSLayoutConstraint!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nearestCrumb = CrumbService.sharedService.search(currentLocation).bind(takeFirst)
+        targetLocation = nearestCrumb.map(location)
         
         currentLocation.merge(targetLocation).next(compassView.locationsDidChange)
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW,
-            Int64(3 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue(), {
-            self.targetLocation.update(.Success(Box(CLLocation(latitude: 52.52202, longitude: 13.41381))))
-        })
+        nearestCrumb.bind(isNearby).next { crumb in
+            UIView.animateWithDuration(0.5){
+                self.hideButtonConstraint.active = false
+            }
+        }
+        
+        nearestCrumb.bind(isNearby).error { error in
+            UIView.animateWithDuration(0.5){
+                self.hideButtonConstraint.active = true
+            }
+        }
+    }
+    
+    func isNearby(crumb: Crumb) -> Result<Crumb> {
+        if let location = currentLocation.peek() {
+            if location.distanceFromLocation(crumb.location) < 40 {
+                return .Success(Box(crumb))
+            } else {
+                return .Error(NSError())
+            }
+            
+        } else {
+            return .Error(NSError())
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        return nearestCrumb.peek() != nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dst = segue.destinationViewController as? CrumbViewController {
+            dst.crumb.update(Result.Success(Box(nearestCrumb.peek()!)))
+        }
     }
     
     /*
