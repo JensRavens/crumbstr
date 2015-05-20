@@ -10,5 +10,6 @@ import Foundation
 import CoreLocation
 
 public struct Crumb {
-    let location: CLLocationCoordinate2D
+    let location: CLLocation
+    let text: String?
 }
