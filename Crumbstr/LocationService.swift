@@ -11,25 +11,36 @@ import Interstellar
 import CoreLocation
 
 public class LocationService : NSObject, CLLocationManagerDelegate {
-    public static var sharedService = LocationService()
+    public static let sharedService = LocationService()
     
-    public let signal = Signal<CLLocation>()
+    public let signal: Signal<CLLocation>
+    
+    private let location = Signal<CLLocation>()
+    
+    override public init() {
+        signal = location.ensure(Thread.main)
+    }
     
     private let locationManager = CLLocationManager()
     
     public func startUpdates() {
+        locationManager.delegate = self
+        locationManager.distanceFilter = 100
+        locationManager.desiredAccuracy = 60
         locationManager.requestAlwaysAuthorization()
     }
     
     public func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let locations = locations as! [CLLocation]
         if let location = locations.first {
-            signal.update(.Success(Box(location)))
+            println(location)
+            self.location.update(.Success(Box(location)))
         }
     }
     
     public func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        signal.update(.Error(error))
+        println(error)
+        location.update(.Error(error))
     }
     
     public func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {

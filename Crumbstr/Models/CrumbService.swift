@@ -11,15 +11,15 @@ import Interstellar
 import CoreLocation
 import CloudKit
 
-let CloudKitContainerIdentifier = "iCloud.berlin.swift.Crumbster"
+let CloudKitContainerIdentifier = "iCloud.berlin.swift.Crumbstr"
 
 public class CrumbService {
-    let cloudDatabase = CKContainer(identifier: CloudKitContainerIdentifier).publicCloudDatabase
+    private let cloudDatabase = CKContainer(identifier: CloudKitContainerIdentifier).publicCloudDatabase
+    
+    public static let sharedService = CrumbService()
     
     public func search(location: Signal<CLLocation>)->Signal<[Crumb]> {
-        let signal = Signal<[Crumb]>()
-        
-        return signal;
+        return location.bind(requestCrumbs).ensure(Thread.main);
     }
     
     public func createCrumb(crumb: Crumb, completion: (Result<Crumb> -> Void)) {
@@ -53,7 +53,7 @@ public class CrumbService {
     }
     
     private func recordToCrumb(record: CKRecord)->Result<Crumb> {
-        if let text = record.objectForKey("text") as? String,
+        if let text = record.objectForKey("text") as? String?,
             location = record.objectForKey("location") as? CLLocation {
                 return .Success(Box(Crumb(location: location, text: text)))
         } else {
