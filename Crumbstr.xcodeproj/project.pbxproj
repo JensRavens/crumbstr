@@ -13,6 +13,10 @@
 		6E909BAE97EEC43BD3672153 /* LaunchScreen.xib in Sources */ = {isa = PBXBuildFile; fileRef = 157128E3A54C89BB07460C1A /* LaunchScreen.xib */; };
 		6FD49E37C47A4E7294FCDA03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC5104F50E5B1582016032F4 /* Foundation.framework */; };
 		8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = A9A1403F25D7A6C65AE69851 /* Main.storyboard */; };
+		8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3761B0C8815006A370A /* CrumbService.swift */; };
+		8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC9A3791B0C88DD006A370A /* Crumb.swift */; };
+		8FC9A37C1B0C899F006A370A /* Interstellar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC9A37B1B0C899F006A370A /* Interstellar.framework */; };
+		8FC9A37E1B0C89DC006A370A /* Interstellar.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8FC9A37B1B0C899F006A370A /* Interstellar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +29,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8FC9A37D1B0C89D1006A370A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8FC9A37E1B0C89DC006A370A /* Interstellar.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		055A944BA42C16DA759960E1 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		157128E3A54C89BB07460C1A /* LaunchScreen.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -32,6 +49,9 @@
 		49853BA17FC7D63E6E323D4A /* Crumbstr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crumbstr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73A4C6AFCE785795B12F7BD8 /* Settings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		76541B384258CFD13BBA514D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8FC9A3761B0C8815006A370A /* CrumbService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrumbService.swift; path = Models/CrumbService.swift; sourceTree = "<group>"; };
+		8FC9A3791B0C88DD006A370A /* Crumb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crumb.swift; sourceTree = "<group>"; };
+		8FC9A37B1B0C899F006A370A /* Interstellar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Interstellar.framework; path = Carthage/Build/iOS/Interstellar.framework; sourceTree = SOURCE_ROOT; };
 		9EDA5BE494A47A469ACB7900 /* UnitTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UnitTests-Info.plist"; sourceTree = "<group>"; };
 		A9A1403F25D7A6C65AE69851 /* Main.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		AC5104F50E5B1582016032F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -51,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FD49E37C47A4E7294FCDA03 /* Foundation.framework in Frameworks */,
+				8FC9A37C1B0C899F006A370A /* Interstellar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +81,7 @@
 		3629900B4966CB5D04E29116 /* Crumbstr */ = {
 			isa = PBXGroup;
 			children = (
+				8FC9A3781B0C88CD006A370A /* Services */,
 				B5EE4B69041B669EB8556DBA /* Extensions */,
 				517F5F23590784141C6FFBEB /* Protocols */,
 				C23B3AF03C7F914FAA05E4AF /* Models */,
@@ -143,6 +165,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		8FC9A3781B0C88CD006A370A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8FC9A3761B0C8815006A370A /* CrumbService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		A71330B34092A219FBA81A79 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +198,7 @@
 		BEFAE70B59E350440FDD8679 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8FC9A37B1B0C899F006A370A /* Interstellar.framework */,
 				055A944BA42C16DA759960E1 /* Images.xcassets */,
 				71EAAF65D394EA5FFFF9F735 /* Storyboards */,
 				4101D804AE81FFC36900EEE7 /* Nibs */,
@@ -188,6 +219,7 @@
 		C23B3AF03C7F914FAA05E4AF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				8FC9A3791B0C88DD006A370A /* Crumb.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -245,6 +277,7 @@
 				7CE20FA3235FE87083CE97F6 /* Sources */,
 				C6A7BC2C3ABAE388650EEB97 /* Frameworks */,
 				E89BE0E3ACBF1B0E926D9DEB /* Resources */,
+				8FC9A37D1B0C89D1006A370A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -307,9 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC9A37A1B0C88DD006A370A /* Crumb.swift in Sources */,
 				4F349642A13AD63840151B49 /* AppDelegate.swift in Sources */,
 				8CEC5311EE3D1DCABEDCD4ED /* Main.storyboard in Sources */,
 				6E909BAE97EEC43BD3672153 /* LaunchScreen.xib in Sources */,
+				8FC9A3771B0C8815006A370A /* CrumbService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,9 +478,14 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = "Crumbstr/Resources/Other-Sources/Info.plist";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = (
 					"-DNS_BLOCK_ASSERTIONS=1",
@@ -468,6 +508,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/xcodeproj.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -478,6 +522,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = "Crumbstr/Resources/Other-Sources/Info.plist";
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(TARGET_NAME)";
